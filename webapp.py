@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, session, request, jsonify
+from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask_oauthlib.client import OAuth
 from flask import render_template
 
@@ -84,6 +84,19 @@ def renderPage2():
     else:
         user_data_pprint = '';
     return render_template('page2.html',dump_user_data=user_data_pprint)
+
+@app.route('/secret')
+def renderSecret():
+    if 'user_data'in session:
+        if 'followers' >= 2:
+            secret = 'Looks like you are special!' + Markup('<br>') + Markup('<img src="congratulations.jpg" alt="Congratulations!">')
+        else:
+            secret = 'Sorry, but you can not see the secret message.  Try again later!'
+        user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
+    else:
+        user_data_pprint = '';
+    return render_template('secret.html',dump_user_data=user_data_pprint)
+
 
 @github.tokengetter
 def get_github_oauth_token():
