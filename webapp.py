@@ -95,7 +95,7 @@ def renderSecret():
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
     else:
         user_data_pprint = '';
-    return render_template('secret.html',dump_user_data=user_data_pprint)
+    return render_template('secret.html',dump_user_data=user_data_pprint, secret=secret)
 
 
 @github.tokengetter
