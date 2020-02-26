@@ -94,6 +94,7 @@ def renderSecret():
             secret = 'Sorry, but you can not see the secret message.  Try again later!'
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
     else:
+        secret = 'Sign in to see if you can view the secret message.'
         user_data_pprint = '';
     return render_template('secret.html',dump_user_data=user_data_pprint, secret=secret)
 
