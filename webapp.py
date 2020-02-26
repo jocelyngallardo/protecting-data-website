@@ -88,7 +88,7 @@ def renderPage2():
 @app.route('/secret')
 def renderSecret():
     if 'user_data'in session:
-        if session['user_data']['followers'] >= 3:
+        if session['user_data']['followers'] >= 2:
             secret = 'Looks like you are special!' + Markup('<br>') + Markup('<img src="congratulations.jpg" alt="Congratulations!">')
         else:
             secret = 'Sorry, but you can not see the secret message.  Try again later!'
