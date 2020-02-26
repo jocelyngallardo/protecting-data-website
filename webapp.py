@@ -90,10 +90,10 @@ def renderSecret():
     if 'user_data'in session:
         if session['user_data']['followers'] >= 2:
             secret = 'Looks like you are special!  Here is the secret message.' + Markup('<br>') + Markup('<img src="congratulations.jpg" alt="Congratulations!">')
+            if session['user_data']['login'] == 'jocelyngallardo' or 'kedehlsen' or 'coder123n' or 'sky-adams':
+                secret = 'Looks like you are special!  Here is the secret message.' + Markup('<br>') + Markup('<img src="congratulations.jpg" alt="Congratulations!">' + 'It looks like you have adminstrative privilages. Here is an additional message just for you: ' + Markup('<br>') + Markup('<img src="birthday.jpg" alt="Happy Birthday!">')
         else:
             secret = 'Sorry, but you can not see the secret message.  Try again later!'
-        if session['user_data']['login'] == 'jocelyngallardo' or 'kedehlsen' or 'coder123n' or 'sky-adams':
-            secret = 'Looks like you are special!  Here is the secret message.' + Markup('<br>') + Markup('<img src="congratulations.jpg" alt="Congratulations!">' + 'It looks like you have adminstrative privilages. Here is an additional message just for you: ' + Markup('<br>') + Markup('<img src="birthday.jpg" alt="Happy Birthday!">')
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
     else:
         secret = 'Sign in to see if you can view the secret message.'
