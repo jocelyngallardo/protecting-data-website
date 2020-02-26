@@ -89,7 +89,7 @@ def renderPage2():
 def renderSecret():
     if 'user_data'in session:
         if session['user_data']['followers'] >= 2:
-            secret = 'Looks like you are special!' + Markup('<br>') + Markup('<img src="congratulations.jpg" alt="Congratulations!">')
+            secret = 'Looks like you are special!  Here is the secret message.' + Markup('<br>') + Markup('<img src="congratulations.jpg" alt="Congratulations!">')
         else:
             secret = 'Sorry, but you can not see the secret message.  Try again later!'
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
