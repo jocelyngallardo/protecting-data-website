@@ -89,11 +89,11 @@ def renderPage2():
 def renderSecret():
     if 'user_data'in session:
         if session['user_data']['followers'] >= 2:
-            secret = 'Looks like you are special!  Here is the secret message.' + Markup('<br>') + Markup("<img src={{url_for('static', filename='congratulations.jpg')}}>")
+            secret = 'Looks like you are special!  Here is the secret message.' + Markup('<br>') + Markup('<img src="{{url_for("static", filename="congratulations.jpg")}}">')
         else:
             secret = 'Sorry, but you can not see the secret message.  Try again later!'
         if session['user_data']['login'] == 'jocelyngallardo' or 'kedehlsen' or 'coder123n' or 'sky-adams':
-            secret = 'Looks like you are special!  Here is the secret message.' + Markup('<br>') + Markup("<img src={{url_for('static', filename='congratulations.jpg')}}>") + Markup('<br>') + 'It looks like you have adminstrative privilages. Here is an additional message just for you: ' + Markup('<br>') + Markup("<img src={{url_for('static', filename='birthday.jpg')}}>")
+            secret = 'Looks like you are special!  Here is the secret message.' + Markup('<br>') + Markup('<img src="{{url_for("static", filename="congratulations.jpg")}}">') + Markup('<br>') + 'It looks like you have adminstrative privilages. Here is an additional message just for you: ' + Markup('<br>') + Markup('<img src="{{url_for("static", filename="birthday.jpg")}}">')
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
     else:
         secret = 'Sign in to see if you can view the secret message.'
